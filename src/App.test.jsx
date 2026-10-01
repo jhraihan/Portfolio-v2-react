@@ -67,6 +67,10 @@ describe('routes', () => {
       .filter(Boolean)
     expect(numbers).toEqual(['01', '02', '03', '04', '05', '06'])
 
+    // The demo video leads the case study, above the problem, unnumbered.
+    expect(headings[0]).toBe('Walkthrough')
+    expect(headings[1]).toBe('The problem')
+
     expect(screen.getByTitle('SellFlow BD walkthrough')).toHaveAttribute(
       'src',
       'https://www.youtube.com/embed/4FBawFRC9EY',

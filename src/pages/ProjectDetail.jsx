@@ -237,6 +237,27 @@ export function ProjectDetail() {
               content's intrinsic width, which grid children otherwise refuse
               to do — without it, long prose forces horizontal overflow. */}
           <div className="min-w-0 space-y-12">
+            {/* The demo video leads the case study, so a visitor can see the
+                application working before reading how it was built. It is
+                unnumbered, so "The problem" remains 01. */}
+            {embedUrl && (
+              <Section title="Walkthrough">
+                <div
+                  id="walkthrough"
+                  className="aspect-video overflow-hidden rounded-card border border-line bg-elevated"
+                >
+                  <iframe
+                    src={embedUrl}
+                    title={`${title} walkthrough`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="h-full w-full"
+                  />
+                </div>
+              </Section>
+            )}
+
             <Section index={numbered.problem} title="The problem" content={problem} />
             <Section index={numbered.solution} title="The approach" content={solution} />
 
@@ -282,24 +303,6 @@ export function ProjectDetail() {
               title="What I learned"
               content={lessons}
             />
-
-            {embedUrl && (
-              <Section title="Walkthrough">
-                <div
-                  id="walkthrough"
-                  className="aspect-video overflow-hidden rounded-card border border-line bg-elevated"
-                >
-                  <iframe
-                    src={embedUrl}
-                    title={`${title} walkthrough`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="h-full w-full"
-                  />
-                </div>
-              </Section>
-            )}
 
             {images.length > 0 && (
               <Section title="Screenshots">

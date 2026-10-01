@@ -17,11 +17,11 @@ describe('projects', () => {
   it('has exactly six, in the required order', () => {
     expect(projects.map((project) => project.slug)).toEqual([
       'sellflowbd',
-      'servorabd',
+      'medidesk',
       'micromart',
+      'servorabd',
       'eduflow',
       'intellichat',
-      'medidesk',
     ])
     expect(projects.map((project) => project.order)).toEqual([1, 2, 3, 4, 5, 6])
   })
@@ -33,7 +33,7 @@ describe('projects', () => {
 
   it('gives exactly three projects a live demo', () => {
     const live = projects.filter((project) => project.liveUrl).map((project) => project.slug)
-    expect(live).toEqual(['sellflowbd', 'servorabd', 'micromart'])
+    expect(live.sort()).toEqual(['micromart', 'sellflowbd', 'servorabd'])
   })
 
   it('gives every project a cover, a GitHub URL and a video URL', () => {
