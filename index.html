@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Md. Jahid Hasan Raihan — Software Engineer</title>
+    <meta
+      name="description"
+      content="Md. Jahid Hasan Raihan — software engineer in Dhaka, Bangladesh. Full-stack applications built with Django, Django REST Framework, React, and MySQL."
+    />
+    <meta name="author" content="Md. Jahid Hasan Raihan" />
+    <!-- __SITE_URL__ is replaced at build time; see vite.config.js. -->
+    <link rel="canonical" href="__SITE_URL__/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Md. Jahid Hasan Raihan" />
+    <meta property="og:title" content="Md. Jahid Hasan Raihan — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Md. Jahid Hasan Raihan — software engineer in Dhaka, Bangladesh. Full-stack applications built with Django, Django REST Framework, React, and MySQL."
+    />
+    <meta property="og:url" content="__SITE_URL__/" />
+    <meta property="og:image" content="__SITE_URL__/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Md. Jahid Hasan Raihan — Software Engineer" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Md. Jahid Hasan Raihan — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Md. Jahid Hasan Raihan — software engineer in Dhaka, Bangladesh. Full-stack applications built with Django, Django REST Framework, React, and MySQL."
+    />
+    <meta name="twitter:image" content="__SITE_URL__/og-image.png" />
+
+    <meta name="theme-color" content="#080a0e" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafbfd" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Md. Jahid Hasan Raihan",
+        "jobTitle": "Software Engineer",
+        "url": "__SITE_URL__/",
+        "email": "mailto:jahidhr05@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhaka",
+          "addressCountry": "BD"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Independent University, Bangladesh"
+        },
+        "knowsAbout": [
+          "Django",
+          "Django REST Framework",
+          "React",
+          "MySQL",
+          "PostgreSQL",
+          "Python",
+          "REST API design"
+        ],
+        "sameAs": [
+          "https://github.com/jhraihan",
+          "https://www.linkedin.com/in/md-jahid-hasan-raihan-745023393",
+          "https://leetcode.com/u/Jahid_Hasan_Raihan/"
+        ]
+      }
+    </script>
+
+    <!--
+      Applies the saved theme before first paint. Without this the page
+      renders dark for a frame before switching to light, which reads as a
+      flicker on every load.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio-theme')
+          var prefersLight =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: light)').matches
+          if (stored === 'light' || (!stored && prefersLight)) {
+            document.documentElement.classList.add('light')
+          }
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p style="padding:2rem;font-family:system-ui,sans-serif">
+        This site needs JavaScript. You can reach Md. Jahid Hasan Raihan at
+        <a href="mailto:jahidhr05@gmail.com">jahidhr05@gmail.com</a> or on
+        <a href="https://github.com/jhraihan">GitHub</a>.
+      </p>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

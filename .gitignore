@@ -1,0 +1,12 @@
+node_modules
+dist
+.vercel
+
+# Local environment. .env.example is the committed template.
+.env
+.env.*
+!.env.example
+
+*.log
+.DS_Store
+Thumbs.db
