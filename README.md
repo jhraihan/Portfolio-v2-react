@@ -50,18 +50,17 @@ breaks one fails the build rather than shipping.
 
 ## Contact form
 
-With no backend, the form posts to a third-party form service. Copy
-`.env.example` to `.env` and set **one** of:
+With no backend, the form posts to [Web3Forms](https://web3forms.com), which
+emails each message to jahidhr05@gmail.com (free plan: 250 a month).
 
-- `VITE_CONTACT_ENDPOINT` — a Formspree endpoint (`https://formspree.io/f/…`)
-- `VITE_WEB3FORMS_ACCESS_KEY` — a Web3Forms access key
+The access key is in `src/lib/contact.js`. Web3Forms issues it as a public key
+for client-side code, so it is committed rather than kept in an environment
+variable, and the live site needs no configuration. To use a different key,
+change it there or set `VITE_WEB3FORMS_ACCESS_KEY` at build time.
 
-On Vercel, add the same variable under **Project → Settings → Environment
-Variables** and redeploy. Both values are public by design.
-
-Until one is set, submitting the form opens the visitor's mail app with the
-message already written, so the form is never a dead button. Direct email is
-always shown beside it.
+Submissions, spam filtering and the allowed website URL are managed in the
+Web3Forms dashboard. Direct email is always shown beside the form, so it is
+never the only way to get in touch.
 
 ## Deploying to Vercel
 

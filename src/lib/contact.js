@@ -1,16 +1,20 @@
 import { profile } from '@/data'
 
-// The contact form posts to a third-party form service, since there is no
-// backend. Both ids are public by design and rate-limited by the provider, so
-// they are safe to inline at build time.
+// The contact form posts to Web3Forms, since there is no backend. Messages
+// arrive at jahidhr05@gmail.com.
 //
-//   VITE_CONTACT_ENDPOINT       a Formspree URL, e.g. https://formspree.io/f/abcdwxyz
-//   VITE_WEB3FORMS_ACCESS_KEY   a Web3Forms access key (used if set)
+// The access key is public by design — Web3Forms issues it for use in
+// client-side code and rate-limits it — so it is inlined here and the live
+// site needs no environment variable. Setting VITE_WEB3FORMS_ACCESS_KEY at
+// build time overrides it; an empty value falls back to this one.
 //
-// With neither set, the form still works: it opens the visitor's mail app
-// with the message already written, so it is never a dead button.
+// Should no key be configured at all, the form still works: it opens the
+// visitor's mail app with the message already written, so it is never a dead
+// button.
+const DEFAULT_WEB3FORMS_KEY = '358339e1-d7be-45f7-b19b-883abea8c354'
+
 const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || ''
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || ''
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || DEFAULT_WEB3FORMS_KEY
 
 export const contactMode = WEB3FORMS_KEY
   ? 'web3forms'
@@ -92,7 +96,10 @@ export async function sendContact({ name, email, subject, message }) {
     throw new ContactError('Could not reach the server. Check your connection and try again.', 0)
   }
 
-  if (!response.ok) {
+  // Web3Forms can reject a submission in the body ({ success: false }) as well
+  // as by status code, so both are checked before reporting success.
+  const result = await response.json().catch(() => null)
+  if (!response.ok || result?.success === false) {
     throw new ContactError('Your message could not be sent.', response.status)
   }
 }
